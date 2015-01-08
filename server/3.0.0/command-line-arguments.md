@@ -69,7 +69,7 @@ The following parameters are supported by the Event Store:
 <tr>
 	<th>Parameter</th>
 	<th>Environment <em>(all prefixed with EVENTSTORE_)</em></th>
-	<th>JSON</th>
+	<th>YAML</th>
 	<th>Description</th>
 	<th>Default</th>
 </tr>
@@ -90,14 +90,14 @@ The following parameters are supported by the Event Store:
 <tr>
 	<td><code>--log</code></td>
 	<td>LOG</td>
-	<td>logsdir</td>
+	<td>Log</td>
 	<td>Path on which to keep log files.</td>
 	<td>./logs</td>
 </tr>
 <tr>
 	<td><code>--cfg</code><br><code>--config=VALUE</code></td>
 	<td>CONFIGS</td>
-	<td>configs</td>
+	<td>Configs</td>
 	<td>Configuration files.</td>
 	<td>na</td>
 </tr>
@@ -109,34 +109,6 @@ The following parameters are supported by the Event Store:
 	<td>false</td>
 </tr>
 <tr>
-	<td><code>-i</code>, <code>--ip=VALUE</code></td>
-	<td>IP</td>
-	<td>ip</td>
-	<td>The IP address to bind to.</td>
-	<td>127.0.0.1</td>
-</tr>
-<tr>
-	<td><code>-st</code><br><code>--sec-tcp-port=VALUE</code></td>
-	<td>SEC_TCP_PORT</td>
-	<td>secureTcpPort</td>
-	<td>The port to run the secure (SSL) TCP server on.</td>
-	<td>na</td>
-</tr>
-<tr>
-	<td><code>-h</code><br><code>--http-port=VALUE</code></td>
-	<td>HTTP_PORT</td>
-	<td>httpPort</td>
-	<td>The port to run the HTTP server on.</td>
-	<td>2113</td>
-</tr>
-<tr>
-	<td><code>-t</code>, <code>--tcp-port=VALUE</code></td>
-	<td>TCP_PORT</td>
-	<td>tcpPort</td>
-	<td>The port to run the TCP server on.</td>
-	<td>1113</td>
-</tr>
-<tr>
 	<td><code>def</code><br><code>define=</code></td>
 	<td>DEFINES</td>
 	<td>defines</td>
@@ -146,294 +118,291 @@ The following parameters are supported by the Event Store:
 <tr>
 	<td><code>-s</code><br><code>--stats-period-sec=VALUE</code></td>
 	<td>STATS_PERIOD_SEC</td>
-	<td>statsPeriodSec</td>
+	<td>StatsPeriodSec</td>
 	<td>The number of seconds between statistics gathers.</td>
 	<td>15</td>
 </tr>
 <tr>
 	<td><code>-c</code><br><code>--chunkcache</code><br><code>--cached-chunks=VALUE</code></td>
 	<td>CACHED_CHUNKS</td>
-	<td>cachedChunks</td>
+	<td>CachedChunks</td>
 	<td>The number of chunks to cache in unmanaged memory.</td>
 	<td>0</td>
 </tr>
 <tr>
 	<td><code>-c</code><br><code>--chunk-cache-size</code>, <code>--cached-chunks=VALUE</code></td>
 	<td>CHUNKS_CACHE_SIZE</td>
-	<td>chunksCacheSize</td>
+	<td>ChunksCacheSize</td>
 	<td>The amount of unmanaged memory (in MB) to use for caching chunks.</td>
 	<td>0</td>
 </tr>
 <tr>
 	<td><code>-d</code><br><code>--db=VALUE</code></td>
 	<td>DB</TD>
-	<td>db</TD>
+	<td>Db</TD>
 	<td>The path the db should be loaded/saved to.</td>
 	<td>temporary db</td>
 </tr>
 <tr>
 	<td><code>--do-not-verify-db-hashes-on-startup</code>, <code>--skip-db-verify</code></td>
 	<td>SKIP_DB_VERIFY</td>
-	<td>skipDbVerify</td>
-	<td>Bypasses the checking of file hashes of database during startup (allows for faster startup).</td>
+	<td>SkipDbVerify</td>
+	<td>Bypasses the checking of file hashes of database during startup (allows for faster startup at the expense of safety).</td>
 	<td>false</td>
 </tr>
 <tr>
 	<td>
-              <code>--run-projections=NONE</code><br>
-              <code>--run-projections=SYSTEM</code><BR>
-              <code>--run-projections=ALL</code>
-        </td>
+    <code>--run-projections=NONE</code><br />
+    <code>--run-projections=SYSTEM</code><br />
+    <code>--run-projections=ALL</code>
+    </td>
 	<td>RUN_PROJECTIONS</td>
-	<td>runProjections</td>
+	<td>RunProjections</td>
 	<td>Enables the running of JavaScript projections (experimental). Can be either none, system, or all</td>
 	<td>system</td>
 </tr>
 <tr>
 	<td><code>--projection-threads=VALUE</code></td>
 	<td>PROJECTION_THREADS</td>
-	<td>projectionThreads</td>
+	<td>ProjectionThreads</td>
 	<td>The number of threads to use for projections.</td>
 	<td>3</td>
 </tr>
 <tr>
 	<td><code>--worker-threads=VALUE</code></td>
 	<td>WORKER_THREADS</td>
-	<td>workerThreads</td>
+	<td>WorkerThreads</td>
 	<td>The number of threads in pool for worker services.</td>
 	<td>5</td>
 </tr>
 <tr>
 	<td><code>--http-prefixes</code><br><code>--http-prefixes=VALUE</code></td>
 	<td>HTTP_PREFIXES</td>
-	<td>httpPrefixes</td>
+	<td>HttpPrefixes</td>
 	<td>The prefixes that the http server should respond to. To specify multiple prefixes use the format <code>--http-prefixes="http://prefix1:port/,http://prefix2:port/"</code>. No spaces between the prefixes.</td>
 	<td>na</td>
 </tr>
 <tr>
 	<td><code>--pt</code><br><code>--prepare-timeout=VALUE</code></td>
 	<td>PREPARE_TIMEOUT_MS</td>
-	<td>prepareTimeoutMs</td>
+	<td>PrepareTimeoutMs</td>
 	<td>The timeout in milliseconds of a prepare.</td>
 	<td>2000</td>
 </tr>
 <tr>
 	<td><code>--ct</code><br><code>--commit-timeout=VALUE</code></td>
 	<td>COMMIT_TIMEOUT_MS</td>
-	<td>commitTimeoutMs</td>
+	<td>CommitTimeoutMs</td>
 	<td>The timeout in milliseconds of a commit.</td>
 	<td>2000</td>
 </tr>
 <tr>
 	<td><code>certificate-store=VALUE</code></td>
 	<td>CERTIFICATE_STORE</td>
-	<td>certificateStore</td>
+	<td>CertificateStore</td>
 	<td>The name of certificate store to use.</td>
 	<td>na</td>
 </tr>
 <tr>
 	<td><code>--certificate-name=VALUE</code></td>
 	<td>CERTIFICATE_NAME</td>
-	<td>certificateName</td>
+	<td>CertificateName</td>
 	<td>The name of the certificate to use</td>
 	<td>na</td>
 </tr>
 <tr>
 	<td><code>--certificate-file=VALUE</code></td>
 	<td>CERTIFICATE_FILE</td>
-	<td>certificateFile</td>
+	<td>CertificateFile</td>
 	<td>The file of the certificate to use</td>
 	<td>na</td>
 </tr>
 <tr>
 	<td><code>--certificate-password=VALUE</code></td>
 	<td>CERTIFICATE_PASSWORD</td>
-	<td>certificatePassword</td>
+	<td>CertificatePassword</td>
 	<td>The password to certificate in file.</td>
 	<td>na</td>
 </tr>
 <tr>
 	<td><code>--min-flush-delay=VALUE</code></td>
 	<td>MIN_FLUSH_DELAY</td>
-	<td>minFlushDelay</td>
+	<td>MinFlushDelay</td>
 	<td>The minimum flush delay to be added when writing under heavy load. Not normally set</td>
 	<td>na</td>
 </tr>
 <tr>
-	<td span="4">In high availability version only</td>
-</tr>
-<tr>
 	<td><code>--int-ip</code><br><code>--internal-ip=VALUE</code></td>
 	<td>INT_IP</td>
-	<td>internalIp</td>
+	<td>IntIp</td>
 	<td>Internal IP Address. (eg for replication, ui, and internal communications)</td>
 	<td>127.0.0.1</td>
 </tr>
 <tr>
 	<td><code>--ext-ip</code><br><code>--internal-ip=VALUE</code></td>
 	<td>EXT_IP</td>
-	<td>externalIp</td>
+	<td>ExtIp</td>
 	<td>External IP Address. (eg for clients to talk to)</td>
 	<td>127.0.0.1</td>
 </tr>
 <tr>
 	<td><code>--int-http-port</code><br><code>--internal-http-port=VALUE</code></td>
 	<td>INT_HTTP_PORT</td>
-	<td>internalHttpPort</td>
+	<td>IntHttpPort</td>
 	<td>Internal Http Port. (eg for Gossip and UI)</td>
 	<td>2112</td>
 </tr>
 <tr>
 	<td><code>--ext-http-port</code><br><code>--external-http-port=VALUE</code></td>
 	<td>EXT_HTTP_PORT</td>
-	<td>externalHttpPort</td>
+	<td>ExtHttpPort</td>
 	<td>External Http Port. (eg for clients over ATOM)</td>
 	<td>2113</td>
 </tr>
 <tr>
 	<td><code>--int-tcp-port</code><br><code>--internal-tcp-port=VALUE</code></td>
 	<td>INT_TCP_PORT</td>
-	<td>internalTcpPort</td>
+	<td>IntTcpPort</td>
 	<td>Internal Tcp Port (eg for replication)</td>
 	<td>1112</td>
 </tr>
 <tr>
 	<td><code>--int-sec-tcp-port</code><br><code>--internal-secure-tcp-port=VALUE</code></td>
 	<td>INT_SEC_TCP_PORT</td>
-	<td>internalSecureTcpPort</td>
+	<td>IntSecureTcpPort</td>
 	<td>Internal Secure Tcp Port (eg for replication over SSL)</td>
 	<td>na</td>
 </tr>
 <tr>
 	<td><code>--ext-tcp-port</code><br><code>--external-tcp-port=VALUE</code></td>
 	<td>EXT_TCP_PORT</td>
-	<td>externalTcpPort</td>
+	<td>ExtTcpPort</td>
 	<td>External Tcp Port (eg for clients)</td>
 	<td>1113</td>
 </tr>
 <tr>
 	<td><code>--ext-sec-tcp-port</code><br><code>--external-secure-tcp-port=VALUE</code></td>
 	<td>EXT_SEC_TCP_PORT</td>
-	<td>externalSecureTcpPort</td>
+	<td>ExtSecureTcpPort</td>
 	<td>External Secure Tcp Port (eg for clients SSL)</td>
 	<td>na</td>
 </tr>
 <tr>
 	<td><code>--cluster-dns=VALUE</code></td>
 	<td>CLUSTER_DNS</td>
-	<td>clusterDns</td>
+	<td>ClusterDns</td>
 	<td>The DNS to use for cluster discovery</td>
 	<td>na</td>
 </tr>
 <tr>
 	<td><code>--nodes-count</code><br><code>--cluster-size=VALUE</code></td>
 	<td>CLUSTER_SIZE</td>
-	<td>clusterSize</td>
+	<td>ClusterSize</td>
 	<td>The overall size of the cluster (active nodes)</td>
 	<td>3</td>
 </tr>
 <tr>
 	<td><code>--prepare-count=VALUE</code></td>
 	<td>PREPARE_COUNT</td>
-	<td>prepareCount</td>
+	<td>PrepareCount</td>
 	<td>The count of prepares before continuing (should be set to a quorum of nodes)</td>
 	<td>2</td>
 </tr>
 <tr>
 	<td><code>--commit-count=VALUE</code></td>
 	<td>COMMIT_COUNT</td>
-	<td>commitCount</td>
+	<td>CommitCount</td>
 	<td>The count of commits before continuing (should be set to a quorum of nodes)</td>
 	<td>2</td>
 </tr>
 <tr>
 	<td><code>--max-memtable-size=VALUE</code></td>
 	<td>MAX_MEMTABLE_SIZE</td>
-	<td>maxMemtableSize</td>
+	<td>MaxMemtableSize</td>
 	<td>The maximum size of a memory table before it should be moved to disk.</td>
 	<td>1000000</td>
 </tr>
 <tr>
 	<td><code>--f<code><br><code>--fake-dns=VALUE</code></td>
 	<td>FAKE_DNS</td>
-	<td>fakeDns</td>
+	<td>FakeDns</td>
 	<td>Used to do discovery without a dns setup for the cluster</td>
 	<td>na</td>
 </tr>
 <tr>
 	<td><code>--fake-dns-ip=VALUE</code></td>
 	<td>FAKE_DNS_IP</td>
-	<td>fakeDnsIp</td>
+	<td>FakeDnsIp</td>
 	<td>Used to do discovery without a dns setup for the cluster</td>
 	<td>na</td>
 </tr>
 <tr>
 	<td><code>--manager-ip</code><br><code>--int-manager-ip</code><br><code>--internal-manager-ip=VALUE</code></td>
 	<td>INT_MANAGER_IP</td>
-	<td>internalManagerIp</td>
+	<td>IntManagerIp</td>
 	<td>The internal ip address of the node manager</td>
 	<td>127.0.0.1</td>
 </tr>
 <tr>
 	<td><code>--ext-manager-ip</code><br><code>--external-manager-ip=VALUE</code></td>
 	<td>EXT_MANAGER_IP</td>
-	<td>externalManagerIp</td>
+	<td>ExtManagerIp</td>
 	<td>The external ip address of the node manager</td>
 	<td>127.0.0.1</td>
 </tr>
 <tr>
 	<td><code>--manager-port</code><br><code>--int-manager-http-port</code><br><code>--internal-manager-http-port=VALUE</code></td>
 	<td>INT_MANAGER_HTTP_PORT</td>
-	<td>internalManagerHttpPort</td>
+	<td>IntManagerHttpPort</td>
 	<td>The internal http port of the node manager</td>
 	<td>30777</td>
 </tr>
 <tr>
 	<td><code>--admin-on-ext</code></td>
 	<td>ADMIN_ON_EXT</td>
-	<td>adminOnExt</td>
+	<td>AdminOnExt</td>
 	<td>Whether or not to run the admin ui on the external http endpoint</td>
 	<td>true</td>
 </tr>
 <tr>
 	<td><code>--gossip-on-ext</code></td>
 	<td>GOSSIP_ON_EXT</td>
-	<td>gossipOnExt</td>
+	<td>GossipOnExt</td>
 	<td>Whether or not to accept gossip requests on the external http endpoint</td>
 	<td>true</td>
 </tr>
 <tr>
 	<td><code>--stats-on-ext</code></td>
 	<td>STATS_ON_EXT</td>
-	<td>statsOnExt</td>
+	<td>StatsOnExt</td>
 	<td>Whether or not to accept statistics requests on the external http endpoint. This option is needed if you run the admin UI on external endpoint</td>
 	<td>true</td>
 </tr>
 <tr>
 	<td><code>--ext-manager-http-port</code><br><code>--external-manager-http-port=VALUE</code></td>
 	<td>EXT_MANAGER_HTTP_PORT</td>
-	<td>externalManagerHttpPort</td>
+	<td>ExtManagerHttpPort</td>
 	<td>The external http port of the node manager</td>
 	<td>30778</td>
 </tr>
 <tr>
 	<td><code>--use-internal-ssl</code></td>
 	<td>USE_INTERNAL_SSL</td>
-	<td>useInternalSsl</td>
+	<td>UseInternalSsl</td>
 	<td>If true will attempt to use secure replication</td>
 	<td>false</td>
 </tr>
 <tr>
 	<td><code>--ssl-target-host=VALUE</code></td>
 	<td>SSL_TARGET_HOST</td>
-	<td>sslTargetHost</td>
+	<td>SslTargetHost</td>
 	<td>The target host of the server’s ssl certificate</td>
 	<td>na</td>
 </tr>
 <tr>
 	<td><code>--ssl-validate-server</code></td>
 	<td>SSL_VALIDATE_SERVER</td>
-	<td>sslValidateServer</td>
+	<td>SslValidateServer</td>
 	<td>Whether to validate that the server’s certificate is trusted</td>
 	<td>true</td>
 </tr>
